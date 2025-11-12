@@ -5,57 +5,13 @@
         $title = "Borang Keahlian KOHICRI";
         require '../global/header.php';
     ?>
-    <style>
-        body {
-            background: #f6f8fb;
-            font-family: 'Poppins', sans-serif;
-        }
-        .form-section {
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-        .form-section h5 {
-            background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
-            color: #fff;
-            margin: 0;
-            padding: 15px 20px;
-            font-weight: 600;
-        }
-        .form-section .card-body {
-            padding: 25px;
-        }
-        .form-control, .form-select, textarea {
-            border-radius: 10px;
-            transition: 0.3s ease;
-        }
-        .form-control:focus, .form-select:focus, textarea:focus {
-            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
-        }
-        label {
-            font-weight: 500;
-        }
-        .btn-submit {
-            background: linear-gradient(90deg, #00c6ff 0%, #007bff 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 10px 25px;
-            transition: 0.3s ease;
-        }
-        .btn-submit:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="../css/form_style.css">
 </head>
 <body>
 
 <div class="container py-5">
     <h3 class="text-center fw-bold mb-4 text-primary">📝 Borang Keahlian KOHICRI</h3>
-    <form>
+    <form method="POST" enctype="multipart/form-data" action="../controller/anggota_add_exec.php">
 
         <!-- Bahagian 1: Butiran Peribadi -->
         <h6>SIla baca arahan dengan teliti sebelum mengisi permohonan anda. Semua maklumat yang diminta mesti dijawab dengan lengkap.</h6>
@@ -203,24 +159,32 @@
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" id="check1" name="akuan_1" required>
                     <label class="form-check-label" for="check1">
-                        <!-- your text here -->
-                        Saya mengesahkan bahawa maklumat yang diberikan adalah benar.
+                       Saya bersetuju membayar yuran sebanyak RM100.00 (Ringgit Malaysia: Satu Ratus Ringgit Sahaja)
+                       sebagai yuran menjadi anggota Koperasi Hicri Terengganu Berhad dan Modal Saham RM20,000 (Ringgit Malaysia: Dua Puluh Ribu Ringgit Sahaja).
                     </label>
                 </div>
 
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" id="check2" name="akuan_2">
                     <label class="form-check-label" for="check2">
-                        <!-- your text here -->
-                        Saya bersetuju mematuhi peraturan KOHICRI.
+                        Sekiranya saya diterima menjadi Anggota KOHICRI, saya bersetuju/mengaku :
+                        <ul>
+                            <li>Mematuhi UndangUndangKecil (UUK) KOHICRI dan segala perundangan berkaitan dengan KOHICRI.</li>
+                            <li>Membenarakan Wang Yuran/Saham /Simpanan Khas saya ditadbir oleh Koperasi untuk urusan perniagaan/ pelaburan/ Skim dan lain-lain yang difikirkan oleh KOHICRI untuk faedah dan kebaikan bersama.</li>
+                            <li>Perlantikan ini dalah untuk menjadi ahli KOHICRI sahaja dan bukanlah Ahli Lembaga KOHICRI</li>
+                            <li>Perlantikan Wasi (wakil waris) sebagai pewaris adalah mengikut hukum faraid dan</li>
+                            <li>
+                                Pada bila-bila masa pun setelah saya tidak menjadi Anggota KOHICRI, segala caruman saya masih di koperasi ini, saya ikhlas hati
+                                menghibahkannya kepada KOHICRI setelah usaha dilaksanakan oleh Anggota Lembaga gagal menghubungi saya ataupun waris saya selama tiga (3) tahun.
+                            </li>
+                        </ul>
                     </label>
                 </div>
 
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" id="check3" name="akuan_3">
                     <label class="form-check-label" for="check3">
-                        <!-- your text here -->
-                        Saya memahami bahawa keahlian boleh ditamatkan sekiranya memberi maklumat palsu.
+                       Saya dengan rela hati melantik penama (waris) untuk mewarisi sebarang hak saya yang ada dalam Koperasi ini apabila saya meninggal dunia atau apa-apa perkara lain yang berkenaan dengan diri saya.
                     </label>
                 </div>
 
