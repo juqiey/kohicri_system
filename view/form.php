@@ -100,8 +100,19 @@
                             </div>
                             <div class="col-md-6">
                                 <label>Pekerjaan</label>
-                                <input type="text" class="form-control" name="pekerjaan">
+                                <select class="form-select" name="pekerjaan" id="pekerjaanSelect">
+                                    <option selected disabled>Pilih</option>
+                                    <option value="Bekerja Sendiri">Bekerja Sendiri</option>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
+                                    <option value="Bekerja">Bekerja</option>
+                                </select>
                             </div>
+
+                            <div class="col-md-6" id="jawatanField" style="display: none;">
+                                <label>Jawatan</label>
+                                <input type="text" class="form-control" name="jawatan" id="jawatanInput">
+                            </div>
+
                             <div class="col-md-12">
                                 <label>Alamat Emel</label>
                                 <input type="email" class="form-control" name="email">
@@ -113,7 +124,7 @@
                     <div class="col-md-4 text-center">
                         <label class="form-label">Muat Naik Gambar Passport</label>
                         <div class="mb-2">
-                            <img id="passportPreview" src="https://via.placeholder.com/200x200?text=Passport+Image" 
+                            <img id="passportPreview" src="../img/passport-placeholder.png"
                                 alt="Passport Preview" class="img-fluid rounded shadow-sm" style="max-height: 250px;">
                         </div>
                         <input type="file" class="form-control" name="passport_image" id="passportImage" accept="image/*">
@@ -202,6 +213,18 @@ require '../global/script.php';
 ?>
 
 <script>
+    const pekerjaanSelect = document.getElementById('pekerjaanSelect');
+    const jawatanField = document.getElementById('jawatanField');
+
+    pekerjaanSelect.addEventListener('change', function() {
+        if (this.value === 'Bekerja') {
+            jawatanField.style.display = 'block';
+        } else {
+            jawatanField.style.display = 'none';
+            document.getElementById('jawatanInput').value = '';
+        }
+    });
+
     const passportImageInput = document.getElementById('passportImage');
     const passportPreview = document.getElementById('passportPreview');
 
@@ -214,7 +237,7 @@ require '../global/script.php';
             }
             reader.readAsDataURL(file);
         } else {
-            passportPreview.src = "https://via.placeholder.com/200x200?text=Passport+Image";
+            passportPreview.src = "../img/passport-placeholder.png";
         }
     });
 </script>

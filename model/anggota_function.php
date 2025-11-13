@@ -53,4 +53,20 @@ function addNewAnggota($data) {
 
     return $result;
 }
+
+function getAnggotaList(){
+    $conn = db();
+
+    $sql = "SELECT * FROM anggota";
+
+    return $conn->query($sql);
+}
+
+function viewAnggota($id){
+    $conn = db();
+
+    $sql = "SELECT * FROM anggota WHERE id='$id'";
+
+    return $conn->query($sql);
+}
 ?>

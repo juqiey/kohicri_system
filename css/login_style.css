@@ -1,0 +1,79 @@
+body {
+    background-color: #f8f9fa;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+}
+
+.welcome-section {
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    color: white;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.welcome-section h2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.welcome-section p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.login-section {
+    padding: 3rem 2rem;
+}
+
+.login-title {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #343a40;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #007bff;
+}
+
+.btn-primary {
+    width: 100%;
+    border-radius: 50px;
+}
+
+.extra-links {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.extra-links a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .welcome-section {
+        display: none;
+    }
+}
