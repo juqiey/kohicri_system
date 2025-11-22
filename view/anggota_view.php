@@ -10,7 +10,7 @@ $anggota = viewAnggota($id)->fetch_assoc();
 <html lang="en">
 <head>
     <?php
-    $title = "View Anggota";
+    $title = "Maklumat Anggota";
     require '../global/header.php';
     ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>

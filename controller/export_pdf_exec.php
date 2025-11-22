@@ -13,6 +13,14 @@ if (!$id) {
 // Fetch anggota data
 $anggota = viewAnggota($id)->fetch_assoc();
 
+$logo_path = dirname(__DIR__) . '/img/logo.png'; // Go up one directory to match anggota image path
+$logo_data = '';
+if (file_exists($logo_path)) {
+    $logo_type = pathinfo($logo_path, PATHINFO_EXTENSION);
+    $logo_data = 'data:image/' . $logo_type . ';base64,' . base64_encode(file_get_contents($logo_path));
+}
+
+
 $image_data = '';
 if (!empty($anggota['gambar_url'])) {
     $absolute_image_path = dirname(__DIR__) . '/img/' . $anggota['gambar_url'];
@@ -21,7 +29,6 @@ if (!empty($anggota['gambar_url'])) {
         $image_data = 'data:image/' . $image_type . ';base64,' . base64_encode(file_get_contents($absolute_image_path));
     }
 }
-
 
 
 // Initialize Dompdf Options
@@ -168,6 +175,12 @@ body {
 </script>
 
 <div class="page">
+    <!-- LOGO SECTION -->
+    <div class="logo-section" style="text-align:center; margin-bottom:15px; width:100%;">
+        ' . ($logo_data ? '<img src="'.$logo_data.'" alt="Logo" style="width:100%; max-width:auto; height:100;">' : '[No Logo]') . '
+    </div>
+
+
     <div class="header">
         <h1>BORANG PERMOHONAN MENJADI ANGGOTA</h1>
         <p>KOHICRI</p>
@@ -187,13 +200,12 @@ body {
             </div>
             <div class="field-group">
                 <div class="field-label">Tarikh Borang Dijana:</div>
-                <div class="field-value">'.htmlspecialchars(date('d F Y')).'</div>
+                <div class="field-value">'.htmlspecialchars(date("d F Y")).'</div>
             </div>
         </div>
         <div class="photo-box">
-            ' . ($image_data ? '<img src="'.$image_data.'" class="resume-img" alt="Photo">' : '<div class="resume-img" style="background-color: #e9ecef; text-align: center; line-height: 110px; font-size: 8pt; color: #6c757d;">[Tiada Foto]</div>') . '
+            ' . ($image_data ? '<img src="'.$image_data.'" class="resume-img" alt="Photo">' : '<div class="resume-img" style="background-color:#e9ecef;text-align:center;line-height:110px;font-size:8pt;color:#6c757d;">[Tiada Foto]</div>') . '
         </div>
-
     </div>
     
     <div class="field-group">
@@ -249,7 +261,7 @@ body {
         <div class="field-value">'.htmlspecialchars($anggota['jawatan']).'</div>
     </div>
     <div class="field-group">
-        <div class="field-label">No Akaun Bank:</div>
+        <div class="field-label">No Akaun Bank MUAMALAT:</div>
         <div class="field-value">'.htmlspecialchars($anggota['no_akaun']).'</div>
     </div>
 
@@ -298,7 +310,9 @@ body {
         <span class="akuan-status">'.($anggota['akuan_3'] ? '&#10003; BERSETUJU' : '&#10007; TIDAK BERSETUJU').'</span> 
         Saya dengan rela hati melantik penama (waris) untuk mewarisi sebarang hak saya yang ada dalam Koperasi ini apabila saya meninggal dunia atau apa-apa perkara lain yang berkenaan dengan diri saya.
     </div>
-
+    
+    <div style="page-break-before: always;"></div>
+    <br><br>
     <div class="signature-box">
         <div class="signature-col">
             <div class="signature-line"></div>
@@ -346,6 +360,7 @@ body {
         <div class="field-value" style="border-bottom: 1px solid #000;">&nbsp;</div>
     </div>
 
+    <br><br>
     <div class="signature-box" style="margin-top: 50px;">
         <div class="signature-col">
             <div class="signature-line"></div>
